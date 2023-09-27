@@ -1,6 +1,6 @@
 <template>
   <div class="read-book">
-    <h1>{{ book.title }}</h1>
+    <h1>{{ book?.volumeInfo?.title }}</h1>
 
     <div class="read-book-grid">
       <div ref="thumbnail" class="keen-slider thumbnail">
@@ -76,6 +76,22 @@
           </BookPageContainer>
         </div>
       </div>
+      <div class="pagination-container">
+        <button class="pagination-button" @click="slider.prev()">
+          <img
+            class="pagination-arrow-left"
+            src="@/assets/img/arrow.svg"
+            alt=""
+          />
+        </button>
+        <button class="pagination-button" @click="slider.next()">
+          <img
+            class="pagination-arrow-right"
+            src="@/assets/img/arrow.svg"
+            alt=""
+          />
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -124,7 +140,9 @@ export default Vue.extend({
   data() {
     return {
       totalPage: 5,
-    }
+      slider: '',
+      thumbnail: '',
+    } as { slider: any; totalPage: number; thumbnail: any }
   },
   computed: {
     book() {
@@ -132,9 +150,11 @@ export default Vue.extend({
     },
   },
   mounted() {
+    // @ts-ignore
+
     this.slider = new KeenSlider(this.$refs.slider)
     this.thumbnail = new KeenSlider(
-      this.$refs.thumbnail,
+      this.$refs.thumbnail as any,
       {
         initial: 0,
         slides: {
@@ -154,16 +174,51 @@ export default Vue.extend({
   &-grid {
     display: grid;
     grid-template-columns: 180px 1fr;
-    grid-template-rows: minmax(500px, 1000px);
+    grid-template-rows: minmax(500px, 1000px) auto;
     gap: 1rem;
 
     & > :nth-child(2) {
       text-align: justify;
     }
+
+    @include screen('small') {
+      grid-template-columns: 1fr;
+
+      .thumbnail {
+        display: none;
+      }
+    }
   }
 }
 
+.pagination-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+
+  grid-column: 1/-1;
+
+  .pagination-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem;
+
+    background: color('dark', 'darkest');
+
+    cursor: pointer;
+  }
+  .pagination-arrow {
+    &-right {
+      rotate: 180deg;
+    }
+  }
+}
 .keen-slider {
   margin: 1rem !important;
+}
+.keen-slider__slide.active {
+  border: 2px solid;
 }
 </style>

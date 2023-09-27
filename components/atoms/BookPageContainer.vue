@@ -15,6 +15,9 @@ export default Vue.extend({})
   padding: 3rem 2rem;
 
   border: 1px solid #c7c7c7c7;
+
   height: 100%;
+
+  overflow-y: auto;
 }
 </style>
