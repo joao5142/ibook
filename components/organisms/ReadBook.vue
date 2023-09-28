@@ -215,9 +215,7 @@ export default Vue.extend({
     }
   }
 }
-.keen-slider {
-  margin: 1rem !important;
-}
+
 .keen-slider__slide.active {
   border: 2px solid;
 }
