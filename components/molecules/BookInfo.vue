@@ -2,19 +2,17 @@
   <div class="book-info">
     <h2 class="book-title">{{ $book.volumeInfo.title }}</h2>
 
-    <div class="book-description">
-      {{ $book.volumeInfo.description }}
-    </div>
+    <div class="book-description" v-html="$book.volumeInfo.description"></div>
     <BookCategories />
     <div class="book-release-details">
       <ul>
         <li>
           <p>Lançamento</p>
-          <p>12/22/2000</p>
+          <p>{{ $book.volumeInfo.publishedDate }}</p>
         </li>
         <li>
-          <p>Autor</p>
-          <p>Teste</p>
+          <p>Autores</p>
+          <p>{{ $book.volumeInfo.authors.join(', ') }}</p>
         </li>
       </ul>
     </div>

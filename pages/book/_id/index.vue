@@ -10,7 +10,6 @@ export default Vue.extend({
   layout: 'ibook',
   async asyncData({ params }) {
     await books.show({ id: params.id })
-    console.log(books.$single)
   },
   head() {
     return {

@@ -38,11 +38,15 @@ export default Vue.extend({
 .book-card {
   color: inherit;
   display: grid;
-  grid-gap: 1.5rem;
+  gap: 1.5rem;
 
   img {
     display: grid;
+
     width: 100%;
+    height: 100%;
+    max-height: 218px;
+
     box-shadow: 0px 4px 11px 4px rgba(0, 0, 0, 0.13);
     transition: all 300ms ease;
 
@@ -58,6 +62,7 @@ export default Vue.extend({
   }
 
   p {
+    margin-top: 5px;
     font-size: 13px;
     color: color('dark');
   }

@@ -29,7 +29,9 @@ export default Vue.extend({})
   nav {
     box-shadow: -1px 8px 26px 5px rgba(0, 0, 0, 0.12);
     background: color(dark, darkest);
+
     width: 308px;
+
     height: 50px;
     padding: 0 10px;
     border-radius: 35px;
@@ -53,6 +55,16 @@ export default Vue.extend({})
         background: white;
         left: 0;
         bottom: -16px;
+      }
+    }
+  }
+
+  @media (max-width: 350px) {
+    nav {
+      width: 100%;
+
+      .items {
+        gap: 1.4rem;
       }
     }
   }
