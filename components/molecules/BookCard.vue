@@ -6,6 +6,7 @@
         require('@/assets/img/unavailable-cover.jpg')
       "
       alt="Capa do livro"
+      loading="lazy"
     />
     <div class="text">
       <h4>{{ book?.volumeInfo.title }}</h4>
@@ -45,7 +46,7 @@ export default Vue.extend({
 
     width: 100%;
     height: 100%;
-    max-height: 218px;
+    height: 218px;
 
     box-shadow: 0px 4px 11px 4px rgba(0, 0, 0, 0.13);
     transition: all 300ms ease;
@@ -65,6 +66,13 @@ export default Vue.extend({
     margin-top: 5px;
     font-size: 13px;
     color: color('dark');
+  }
+
+  @media (max-width: 350px) {
+    & {
+      max-width: 200px;
+      margin: 0 auto;
+    }
   }
 }
 </style>

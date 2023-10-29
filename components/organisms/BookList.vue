@@ -1,11 +1,19 @@
 <template>
-  <div class="book-list">
-    <BookCard v-for="book in books" :key="book.id" :book="book" />
+  <div>
+    <div v-if="books" class="book-list">
+      <BookCard v-for="book in books" :key="book.id" :book="book" />
+    </div>
+
+    <div v-else>
+      <LoadingComponent />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import LoadingComponent from '../atoms/Loading.vue'
+
 import { books } from '@/store'
 
 export default Vue.extend({
@@ -29,6 +37,15 @@ export default Vue.extend({
   }
   @include screen('small') {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 350px) {
+    & {
+      grid-template-columns: 1fr;
+
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 </style>

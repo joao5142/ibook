@@ -6,6 +6,7 @@
         require('@/assets/img/unavailable-cover.jpg')
       "
       alt="Capa do livro"
+      loading="lazy"
     />
     <NuxtLink class="read-book" :to="`/book/${$book.id}/read`"
       >Ler Livro</NuxtLink
