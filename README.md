@@ -34,7 +34,7 @@
 
 <img margin-bottom="20px" src="assets/readme/readme4.png">
 
-<h4  style="display: inline_block">Visualização do site :</h4><a style="display: inline_block" target="blank" href="https://ibook-lemon.vercel.app/book/jmDwDwAAQBAJ/read">Preview no Vercel</a>
+<h4  style="display: inline_block">Visualização do site :</h4><a style="display: inline_block" target="blank" href="https://ibook-lemon.vercel.app/">Preview no Vercel</a>
 
 <h2>🧑🏻‍ Autor</h2>
 <p>Feito por João paulo</p>
